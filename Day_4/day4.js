@@ -1,8 +1,9 @@
 // @ts-check
 
 /**
- * Una Funcion que calcula Horas extra
- * @param {{l:number, w: number, h:number}[]} boxes - año a calcular
+ * Una Funcion que determina si es posible empaquetar todas las cajas en una sola
+ * de manera que cada caja contenga a otra.
+ * @param {{l:number, w: number, h:number}[]} boxes - cajas
  * @returns {boolean}
  */
 function fitsInOneBox(boxes) {
