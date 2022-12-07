@@ -1,8 +1,8 @@
 // @ts-check
 
 /**
- * Una Funcion que determina si es posible empaquetar todas las cajas en una sola
- * de manera que cada caja contenga a otra.
+ * Una Funcion que calcula la mayor cantidad de regalos que se pueden
+ * transportar en un solo viaje
  * @param {number[]} giftsCities - cajas
  * @param {number} maxGifts - cajas
  * @param {number} maxCities - cajas
