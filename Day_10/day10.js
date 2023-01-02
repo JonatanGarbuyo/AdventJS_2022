@@ -1,16 +1,30 @@
 //prettier-ignore
-function checkJump(heights) {
-  // spread (...) and apply will either fail or return the wrong result
-  // if the array has too many elements
-  const leftSide = heights.splice(0,
-    heights.indexOf(heights.reduce((a, b) => Math.max(a, b), -Infinity))
-  )
-  const conditionLeft = leftSide.slice(1).every((l, i) => l >= leftSide[i])
-  const conditionRight = heights.slice(1).every((h, i) => h <= heights[i])
+// function checkJump(heights) {
+//   // spread (...) and apply will either fail or return the wrong result
+//   // if the array has too many elements
+//   const leftSide = heights.splice(0,
+//     heights.indexOf(heights.reduce((a, b) => Math.max(a, b), -Infinity))
+//   )
+//   const conditionLeft = leftSide.slice(1).every((l, i) => l >= leftSide[i])
+//   const conditionRight = heights.slice(1).every((h, i) => h <= heights[i])
 
-  return (
-    conditionLeft && conditionRight && !!leftSide.length && heights.length > 1
+//   return (
+//     conditionLeft && conditionRight && !!leftSide.length && heights.length > 1
+//   )
+// }
+
+function checkJump(heights) {
+  const maxHeight = Math.max(...heights)
+  const maxHeightIndex = heights.indexOf( maxHeight)
+
+  let currValue = 0 
+  const firstHalf =  heights.slice(0, maxHeightIndex + 1).every(value => 
+    value > currValue && (currValue = value)
   )
+  const secondHalf =  heights.slice(maxHeightIndex).every(value => 
+    value < currValue && (currValue = value))
+
+  return firstHalf && secondHalf
 }
 
 const heights = [1, 3, 8, 5, 2]
